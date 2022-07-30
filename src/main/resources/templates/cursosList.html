@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="web pinolabs">
+    <meta name="author" content="PinoLabs">
+    <title>AlumnControl</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/estilo.css}" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://kit.fontawesome.com/b6cd2b590e.js" crossorigin="anonymous"></script>
+<body>
+    <header>
+        <div th:replace="nav :: menu"></div>
+        <br>
+        <h1 class="centro Titulo">Listado de Cursos</h1>
+        <br>
+    </header>
+    <main>
+        <section class="container">
+            <table class="table table-striped table-hover table-bordered" id="cursos">
+                <thead>
+                <tr class="centro">
+                    <th>Id</th>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Profesor</th>
+                    <th>Accion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="centro" th:each="curso: ${cursos}">
+                    <th th:text="${curso.getIdCurso()}">Esto es el text</th>
+                    <td th:text="${curso.getCodigoCurso()}">Esto es el text</td>
+                    <td th:text="${curso.getNombreCurso()}">Esto es el text</td>
+                    <td th:text="${curso.getIdProfesor()}">Esto es el text</td>
+                    <td><a th:href="@{/curso/{id}(id=${curso.getIdCurso()})}"><i class="fa-solid fa-user-pen"></i></a>
+                        <a th:href="@{/curso/del/{id}(id=${curso.getIdCurso()})}"><i class="fa-solid fa-trash"></i></a></td>
+
+                </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col">
+                    <a th:href="@{/estudiante/new}" class="btn btn-primary">Crear Estudiante</a>
+                </div>
+                <div class="col-auto">
+                    <a th:href="@{/home}" class="btn btn-primary">volver</a>
+                </div>
+            </div>
+        </section><!-- tabla --->
+
+    </main>
+
+<script>
+    $(document).ready( function () {
+    $('#cursos').DataTable();
+
+} );
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

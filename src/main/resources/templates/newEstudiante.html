@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="web pinolabs">
+  <meta name="author" content="PinoLabs">
+  <title>AlumnControl</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/estilo.css}" rel="stylesheet">
+  <link href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+  <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://kit.fontawesome.com/b6cd2b590e.js" crossorigin="anonymous"></script>
+  <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+</head>
+<body>
+  <header>
+    <div th:replace="nav :: menu"></div>
+    <h1 class="centro">Listado de Clientes</h1>
+  </header>
+  <main>
+    <section class="container">
+      <form th:action="@{/estudiante/save}" method="post" th:object="${estudiante}">
+        <!--<input type="hidden" class="form-control" id="customerId" name="customerId">-->
+
+        <div class="mb-3">
+          <label for="idEstudiante" class="form-label">ID</label>
+          <input type="text" class="form-control" id="idEstudiante" name="idEstudiante" placeholder="1">
+        </div>
+        <div class="mb-3">
+          <label for="rutEstudiante" class="form-label">Rut</label>
+          <input type="text" class="form-control" id="rutEstudiante" name="rutEstudiante" placeholder="10.100.100-1">
+        </div>
+        <div class="mb-3">
+          <label for="nombreEstudiante" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombreEstudiante" name="nombreEstudiante" placeholder="kevin">
+        </div>
+        <div class="mb-3">
+          <label for="emailEstudiante" class="form-label">Email</label>
+          <input type="email" class="form-control" id="emailEstudiante" name="emailEstudiante" placeholder="kevin@gonzalez.com">
+        </div>
+        <div class="mb-3">
+          <label for="telefonoEstudiante" class="form-label">Telefono</label>
+          <input type="text" class="form-control" id="telefonoEstudiante" name="telefonoEstudiante" placeholder="+56956603232">
+        </div>
+        <div class="col-6">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="reset" class="btn btn-secondary">Limpiar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
