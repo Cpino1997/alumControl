@@ -16,50 +16,77 @@
 <body>
 <header>
   <div th:replace="nav :: menu"></div>
-  <h1 class="centro">Listado de Profesores</h1>
 </header>
 <main>
-  <section class="container">
-    <form th:action="@{/profesor/save}" method="post" th:object="${profesor}">
-      <!--<input type="hidden" class="form-control" id="customerId" name="customerId">-->
-
-      <div class="mb-3">
-        <label for="idProfesor" class="form-label">ID</label>
-        <input type="text" class="form-control" id="idProfesor" name="idProfesor" placeholder="1">
+  <section class="container centro "><!-- Home -->
+    <div class="px-4 py-5 my-5 text-center">
+      <div class="col-lg-6 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <br>
+            <h3 class="span loader centro typingEfect">
+              <span class="m">C</span>
+              <span class="m">R</span>
+              <span class="m">E</span>
+              <span class="m">A</span>
+              <span class="m">R</span>
+              <span class="m"><br></span>
+              <span class="m">P</span>
+              <span class="m">R</span>
+              <span class="m">O</span>
+              <span class="m">F</span>
+              <span class="m">E</span>
+              <span class="m">S</span>
+              <span class="m">O</span>
+              <span class="m">R</span>
+            </h3>
+            <br>
+            <form th:action="@{/profesor/save}" method="post" th:object="${profesor}">
+              <div class="row centro">
+                <div class="mb-3">
+                  <input type="hidden" class="form-control" id="idProfesor" name="idProfesor">
+                </div>
+                <div class="col-6">
+                  <label for="rutProfesor" class="form-label">Rut</label>
+                  <input type="text" class="form-control" id="rutProfesor" name="rutProfesor" placeholder="10.100.100-1">
+                </div>
+                <div class="col-6">
+                  <label for="nombreProfesor" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombreProfesor" name="nombreProfesor" placeholder="kevin">
+                </div>
+                <div class="mb-3">
+                  <label for="emailProfesor" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="emailProfesor" name="emailProfesor" placeholder="kevin@gonzalez.com">
+                </div>
+                <div class="mb-3">
+                  <label for="telefonoProfesor" class="form-label">Telefono</label>
+                  <input type="text" class="form-control" id="telefonoProfesor" name="telefonoProfesor" placeholder="+56956603232">
+                </div>
+                <div class="col-4">
+                  <label for="valorHoraProfesor" class="form-label">valor Hora</label>
+                  <input type="text" class="form-control" id="valorHoraProfesor" name="valorHoraProfesor"placeholder="$15.500">
+                </div>
+                <div class="col-4">
+                  <label for="bancoProfesor" class="form-label">Banco</label>
+                  <input type="text" class="form-control" id="bancoProfesor" name="bancoProfesor"placeholder="Santander">
+                </div>
+                <div class="col-4">
+                  <label for="ctaProfesor" class="form-label">Cuenta</label>
+                  <input type="text" class="form-control" id="ctaProfesor" name="ctaProfesor"placeholder="7826500032">
+                </div>
+                <div class="row top1">
+                  <div class="col-md centro">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-secondary">Limpiar</button>
+                    <a th:href="@{/profesor}" class="btn btn-primary">volver</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div><!-- card body -->
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="rutProfesor" class="form-label">Rut</label>
-        <input type="text" class="form-control" id="rutProfesor" name="rutProfesor" placeholder="10.100.100-1">
-      </div>
-      <div class="mb-3">
-        <label for="nombreProfesor" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombreProfesor" name="nombreProfesor" placeholder="kevin">
-      </div>
-      <div class="mb-3">
-        <label for="emailProfesor" class="form-label">Email</label>
-        <input type="email" class="form-control" id="emailProfesor" name="emailProfesor" placeholder="kevin@gonzalez.com">
-      </div>
-      <div class="mb-3">
-        <label for="telefonoProfesor" class="form-label">Telefono</label>
-        <input type="text" class="form-control" id="telefonoProfesor" name="telefonoProfesor" placeholder="+56956603232">
-      </div>
-      <div class="col-6">
-        <label for="valorHoraProfesor" class="form-label">valor Hora</label>
-        <input type="text" class="form-control" id="valorHoraProfesor" name="valorHoraProfesor">
-      </div>
-      <div class="col-6">
-        <label for="bancoProfesor" class="form-label">Banco</label>
-        <input type="text" class="form-control" id="bancoProfesor" name="bancoProfesor">
-      </div>
-      <div class="col-6">
-        <label for="ctaProfesor" class="form-label">Cuenta</label>
-        <input type="text" class="form-control" id="ctaProfesor" name="ctaProfesor">
-      </div>
-      <div class="col-6">
-        <button type="submit" class="btn btn-primary">Enviar</button>
-        <button type="reset" class="btn btn-secondary">Limpiar</button>
-      </div>
-    </form>
+    </div>
   </section>
 </main>
 </body>

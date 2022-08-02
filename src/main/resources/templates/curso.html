@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
@@ -12,36 +11,54 @@
   <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 </head>
 <body>
-<div class="container">
   <header>
-    <h1>Estudiante</h1>
     <div th:replace="nav :: menu"></div>
-  </header>
+    <br>
+    <br>
   <main>
-    <form class="row g-3">
-      <div class="col-12">
-        <label for="idCurso" class="form-label">Id</label>
-        <input type="text" class="form-control" id="idCurso" name="idCurso"
-               th:value="${curso.getIdCurso()}" readonly>
+    <section class="container centro "><!-- Home -->
+      <div class="px-4 py-5 my-5 text-center">
+        <div class="col-lg-6 mx-auto">
+          <div class="card">
+            <div class="card-body">
+              <br>  <h3 class="span loader centro typingEfect">
+              <span class="m">C</span>
+              <span class="m">U</span>
+              <span class="m">R</span>
+              <span class="m">S</span>
+              <span class="m">O</span>
+            </h3>
+              <div class="row">
+                <div class="col-md centro">
+                  <label for="codigoCurso" class="form-label">Codigo Curso</label>
+                  <input type="text" class="form-control centro" id="codigoCurso" name="codigoCurso"
+                         th:value="${curso.getCodigoCurso()}">
+                </div>
+                <div class="col-md centro">
+                  <label for="nombreCurso" class="form-label">Nombre</label>
+                  <input type="text" class="form-control centro" id="nombreCurso" name="nombreCurso"
+                         th:value="${curso.getNombreCurso()}">
+                </div>
+              </div>
+              <div class="row top1">
+                <div class="col-md centro">
+                  <label for="idProfesor" class="form-label">Profesor</label>
+                  <input type="text" class="form-control centro" id="idProfesor" name="idProfesor"
+                         th:value="${curso.getProfesorDTO.getNombreProfesor()}">
+                </div>
+              </div>
+              <div class="row top1">
+                <div class="col-md centro">
+                  <a class="btn btn-primary">Guardar</a>
+                  <a th:href="@{/curso}" class="btn btn-primary">volver</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6">
-        <label for="codigoCurso" class="form-label">Codigo</label>
-        <input type="text" class="form-control" id="codigoCurso" name="codigoCurso"
-               th:value="${curso.getCodigoCurso()}">
-      </div>
-      <div class="col-md-6">
-        <label for="nombreCurso" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombreCurso" name="nombreCurso"
-               th:value="${curso.getNombreCurso()}">
-      </div>
-      <div class="col-6">
-        <label for="idProfesor" class="form-label">Profesor</label>
-        <input type="email" class="form-control" id="idProfesor" name="idProfesor"
-               th:value="${curso.getIdProfesor()}">
-      </div>
-    </form>
+    </section>
   </main>
-</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"

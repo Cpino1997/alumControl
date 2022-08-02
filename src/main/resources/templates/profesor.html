@@ -14,58 +14,74 @@
   <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 </head>
 <body>
-<div class="container">
   <header>
-    <h1>Estudiante</h1>
     <div th:replace="nav :: menu"></div>
   </header>
   <main>
-    <form class="row g-3">
-      <div class="col-12">
-        <label for="idProfesor" class="form-label">Id</label>
-        <input type="text" class="form-control" id="idProfesor" name="idProfesor"
-               th:value="${profesor.getIdProfe()}" readonly>
+    <section class="container centro "><!-- Home -->
+      <div class="px-4 py-5 my-5 text-center">
+        <div class="col-lg-6 mx-auto">
+          <div class="card">
+            <div class="card-body">
+              <br>  <h3 class="span loader centro typingEfect">
+              <span class="m">P</span>
+              <span class="m">R</span>
+              <span class="m">O</span>
+              <span class="m">F</span>
+              <span class="m">E</span>
+              <span class="m">S</span>
+              <span class="m">O</span>
+              <span class="m">R</span>
+            </h3>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="rutProfesor" class="form-label">Rut</label>
+                  <input type="text" class="form-control" id="rutProfesor" name="rutProfesor"
+                         th:value="${profesor.getRutProfesor()}">
+                </div>
+                <div class="col-md-6">
+                  <label for="nombreProfesor" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombreProfesor" name="nombreProfesor"
+                         th:value="${profesor.getNombreProfesor()}">
+                </div>
+                <div class="col-6">
+                  <label for="emailProfesor" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="emailProfesor" name="emailProfesor"
+                         th:value="${profesor.getEmailProfesor()}">
+                </div>
+                <div class="col-6">
+                  <label for="telefonoProfesor" class="form-label">Telefono</label>
+                  <input type="email" class="form-control" id="telefonoProfesor" name="telefonoProfesor"
+                         th:value="${profesor.getTelefonoProfesor()}">
+                </div>
+                <div class="col-6">
+                  <label for="valorHoraProfesor" class="form-label">Telefono</label>
+                  <input type="email" class="form-control" id="valorHoraProfesor" name="valorHoraProfesor"
+                         th:value="${profesor.getValorHoraProfesor()}">
+                </div>
+                <div class="col-6">
+                  <label for="bancoProfesor" class="form-label">Telefono</label>
+                  <input type="email" class="form-control" id="bancoProfesor" name="bancoProfesor"
+                         th:value="${profesor.getBancoProfesor()}">
+                </div>
+                <div class="col-6">
+                  <label for="ctaProfesor" class="form-label">Telefono</label>
+                  <input type="email" class="form-control" id="ctaProfesor" name="ctaProfesor"
+                         th:value="${profesor.getCtaProfesor()}">
+                </div>
+              </div>
+              <div class="row top1">
+                <div class="col-md centro">
+                  <a class="btn btn-primary"> Guardar </a>
+                  <a th:href="@{/estudiante}" class="btn btn-primary">volver</a>
+                </div>
+              </div> <!-- botones -->
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6">
-        <label for="rutProfesor" class="form-label">Rut</label>
-        <input type="text" class="form-control" id="rutProfesor" name="rutProfesor"
-               th:value="${profesor.getRutProfesor()}">
-      </div>
-      <div class="col-md-6">
-        <label for="nombreProfesor" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombreProfesor" name="nombreProfesor"
-               th:value="${profesor.getNombreProfesor()}">
-      </div>
-      <div class="col-6">
-        <label for="emailProfesor" class="form-label">Email</label>
-        <input type="email" class="form-control" id="emailProfesor" name="emailProfesor"
-               th:value="${profesor.getEmailProfesor()}">
-      </div>
-      <div class="col-6">
-        <label for="telefonoProfesor" class="form-label">Telefono</label>
-        <input type="email" class="form-control" id="telefonoProfesor" name="telefonoProfesor"
-               th:value="${profesor.getTelefonoProfesor()}">
-      </div>
-      <div class="col-6">
-        <label for="valorHoraProfesor" class="form-label">Telefono</label>
-        <input type="email" class="form-control" id="valorHoraProfesor" name="valorHoraProfesor"
-               th:value="${profesor.getValorHoraProfesor()}">
-      </div>
-      <div class="col-6">
-        <label for="bancoProfesor" class="form-label">Telefono</label>
-        <input type="email" class="form-control" id="bancoProfesor" name="bancoProfesor"
-               th:value="${profesor.getBancoProfesor()}">
-      </div>
-      <div class="col-6">
-        <label for="ctaProfesor" class="form-label">Telefono</label>
-        <input type="email" class="form-control" id="ctaProfesor" name="ctaProfesor"
-               th:value="${profesor.getCtaProfesor()}">
-      </div>
-    </form>
+    </section>
   </main>
-</div>
-
-
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
         crossorigin="anonymous"></script>

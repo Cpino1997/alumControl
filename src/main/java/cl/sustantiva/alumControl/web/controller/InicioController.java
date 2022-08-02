@@ -21,4 +21,9 @@ public class InicioController {
         logger.info("cargue el home");
         return "home";
     }
+    @GetMapping("/login")
+    public String login(){
+        logger.info("Cargue el Login");
+        return "login";
+    }
 }

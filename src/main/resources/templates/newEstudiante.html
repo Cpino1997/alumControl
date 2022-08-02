@@ -19,35 +19,65 @@
     <h1 class="centro">Listado de Clientes</h1>
   </header>
   <main>
-    <section class="container">
-      <form th:action="@{/estudiante/save}" method="post" th:object="${estudiante}">
-        <!--<input type="hidden" class="form-control" id="customerId" name="customerId">-->
-
-        <div class="mb-3">
-          <label for="idEstudiante" class="form-label">ID</label>
-          <input type="text" class="form-control" id="idEstudiante" name="idEstudiante" placeholder="1">
+    <section class="container centro "><!-- Home -->
+      <div class="px-4 py-5 my-5 text-center">
+        <div class="col-lg-6 mx-auto">
+          <div class="card">
+            <div class="card-body">
+              <br>
+              <h3 class="span loader centro typingEfect">
+                <span class="m">A</span>
+                <span class="m">G</span>
+                <span class="m">R</span>
+                <span class="m">E</span>
+                <span class="m">G</span>
+                <span class="m">A</span>
+                <span class="m">R</span>
+                <span class="m"><br></span>
+                <span class="m">E</span>
+                <span class="m">S</span>
+                <span class="m">T</span>
+                <span class="m">U</span>
+                <span class="m">D</span>
+                <span class="m">I</span>
+                <span class="m">A</span>
+                <span class="m">N</span>
+                <span class="m">T</span>
+                <span class="m">E</span>
+              </h3>
+              <br>
+              <form th:action="@{/estudiante/save}" method="post" th:object="${estudiante}">
+                <div class="mb-3">
+                  <input type="hidden" class="form-control" id="idEstudiante" name="idEstudiante">
+                </div>
+                <div class="mb-3">
+                  <label for="rutEstudiante" class="form-label">Rut</label>
+                  <input type="text" class="form-control" id="rutEstudiante" name="rutEstudiante" placeholder="10.100.100-1">
+                </div>
+                <div class="mb-3">
+                  <label for="nombreEstudiante" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombreEstudiante" name="nombreEstudiante" placeholder="kevin">
+                </div>
+                <div class="mb-3">
+                  <label for="emailEstudiante" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="emailEstudiante" name="emailEstudiante" placeholder="kevin@gonzalez.com">
+                </div>
+                <div class="mb-3">
+                  <label for="telefonoEstudiante" class="form-label">Telefono</label>
+                  <input type="text" class="form-control" id="telefonoEstudiante" name="telefonoEstudiante" placeholder="+56956603232">
+                </div>
+                <div class="row top1">
+                  <div class="col-md centro">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-secondary">Limpiar</button>
+                    <a th:href="@{/estudiante}" class="btn btn-primary">volver</a>
+                  </div>
+                </div>
+              </form>
+            </div><!-- card body -->
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="rutEstudiante" class="form-label">Rut</label>
-          <input type="text" class="form-control" id="rutEstudiante" name="rutEstudiante" placeholder="10.100.100-1">
-        </div>
-        <div class="mb-3">
-          <label for="nombreEstudiante" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombreEstudiante" name="nombreEstudiante" placeholder="kevin">
-        </div>
-        <div class="mb-3">
-          <label for="emailEstudiante" class="form-label">Email</label>
-          <input type="email" class="form-control" id="emailEstudiante" name="emailEstudiante" placeholder="kevin@gonzalez.com">
-        </div>
-        <div class="mb-3">
-          <label for="telefonoEstudiante" class="form-label">Telefono</label>
-          <input type="text" class="form-control" id="telefonoEstudiante" name="telefonoEstudiante" placeholder="+56956603232">
-        </div>
-        <div class="col-6">
-          <button type="submit" class="btn btn-primary">Enviar</button>
-          <button type="reset" class="btn btn-secondary">Limpiar</button>
-        </div>
-      </form>
+      </div>
     </section>
   </main>
 </body>
