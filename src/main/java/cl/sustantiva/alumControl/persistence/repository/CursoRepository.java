@@ -12,25 +12,35 @@ import java.util.Optional;
 
 @Repository
 public class CursoRepository implements CursoRepositoryDTO {
-    private final CursoCrudRepository crudRepository;
+
+    private final CursoCrudRepository crud;
     private final CursoMapper mapper;
 
-    public CursoRepository(CursoCrudRepository crudRepository, CursoMapper mapper) {
-        this.crudRepository = crudRepository;
+
+    public CursoRepository(CursoCrudRepository crud, CursoMapper mapper) {
+        this.crud = crud;
         this.mapper = mapper;
     }
 
-    public List<CursoDTO> getAll(){
-        return mapper.toCursoDTOs((List<Curso>) crudRepository.findAll());
-    }
-    public Optional<CursoDTO> getOne(int idCurso){
-        return crudRepository.findById(idCurso).map(mapper::toCursoDTO);
+
+    @Override
+    public Optional<List<CursoDTO>> findAll() {
+        return Optional.of(mapper.toCursoDTOs((List<Curso>) crud.findAll()));
     }
 
-    public CursoDTO save(CursoDTO cursoDTO){
-        return mapper.toCursoDTO(crudRepository.save(mapper.toCurso(cursoDTO)));
+    @Override
+    public Optional<CursoDTO> findById(int idCurso) {
+        return crud.findById(idCurso)
+                .map(mapper::toCursoDTO);
     }
-    public void delete(int idCurso){
-        crudRepository.deleteById(idCurso);
+
+    @Override
+    public CursoDTO save(CursoDTO cursoDTO) {
+        return mapper.toCursoDTO(crud.save(mapper.toCurso(cursoDTO)));
+    }
+
+    @Override
+    public void delete(int idCurso) {
+        crud.deleteById(idCurso);
     }
 }

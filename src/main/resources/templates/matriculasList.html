@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="web pinolabs">
+  <meta name="author" content="PinoLabs">
+  <title>AlumnControl</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/estilo.css}" rel="stylesheet">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <script src="https://kit.fontawesome.com/b6cd2b590e.js" crossorigin="anonymous"></script>
+<body>
+<header>
+  <div th:replace="nav :: menu"></div>
+  <br>
+  <h3 class="span loader centro">
+    <span class="m">L</span>
+    <span class="m">I</span>
+    <span class="m">S</span>
+    <span class="m">T</span>
+    <span class="m">A</span>
+    <span class="m">D</span>
+    <span class="m">O</span>
+    <span class="m">&nbsp;</span>
+    <span class="m">D</span>
+    <span class="m">E</span>
+    <span class="m">&nbsp;</span>
+    <span class="m">M</span>
+    <span class="m">A</span>
+    <span class="m">T</span>
+    <span class="m">R</span>
+    <span class="m">I</span>
+    <span class="m">C</span>
+    <span class="m">U</span>
+    <span class="m">L</span>
+    <span class="m">A</span>
+  </h3><br><!-- span letras -->
+</header>
+<main>
+  <section class="container">
+    <table class="table table-striped" id="matriculas">
+      <thead>
+      <tr class="centro">
+        <th>idEstudiante</th>
+        <th>idCurso</th>
+        <th>fecha</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="centro" th:each="matricula: ${matriculas}">
+        <td th:text="${matricula.getIdEstudiante()}">Esto es el text</td>
+        <th th:text="${matricula.getIdCurso()}">Esto es el text</th>
+        <td th:text="${matricula.getFecha()}">Esto es el text</td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="col">
+        <a th:href="@{/matricula/new}" class="btn btn-primary">Crear Curso</a>
+      </div>
+      <div class="col-auto">
+        <a th:href="@{/home}" class="btn btn-primary">volver</a>
+      </div>
+    </div>
+  </section><!-- tabla --->
+
+</main>
+
+<script>
+    $(document).ready( function () {
+    $('#matriculas').DataTable();
+
+} );
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

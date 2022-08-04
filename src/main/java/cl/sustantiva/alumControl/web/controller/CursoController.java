@@ -2,53 +2,59 @@ package cl.sustantiva.alumControl.web.controller;
 
 import cl.sustantiva.alumControl.domain.dto.CursoDTO;
 import cl.sustantiva.alumControl.domain.service.CursoService;
-import cl.sustantiva.alumControl.persistence.entity.Curso;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @Controller
 @RequestMapping("/curso")
 public class CursoController {
-    Log logger = LogFactory.getLog(CursoController.class);
 
     private final CursoService service;
-
     public CursoController(CursoService service) {
         this.service = service;
     }
 
-    @GetMapping
-    public String getAllCurso(Model model){
-        model.addAttribute("cursos", service.getAll());
+    @GetMapping("/all")
+    public String findAll(Model model){
+        model.addAttribute("cursos",
+                service.findAll()
+                        .orElse(new ArrayList<CursoDTO>()));
         return "cursosList";
     }
 
     @GetMapping("/{idCurso}")
-    public String getCursoById(@PathVariable("idCurso") int idCurso, Model model){
-        try {
-            model.addAttribute("curso", service.getOne(idCurso).get());
-        } catch (Exception e){
-            logger.error(e.toString());
-        }
+    public String findById(@PathVariable("idCurso") int idCurso, Model model){
+        model.addAttribute("curso",
+                service.findById(idCurso)
+                        .orElse(new CursoDTO()));
         return "curso";
     }
 
-    @PostMapping("/save")
-    public String saveCurso(@ModelAttribute CursoDTO curso, Model model){
-        logger.info(curso.toString());
-        service.save(curso);
-        return "redirect:/curso";
-    }
     @GetMapping("/new")
-    public String newCurso(){
+    public String create(){
         return "newCurso";
     }
-    @GetMapping("/del/{idCurso}")
-    public String delCurso(@PathVariable("idCurso") int idCurso){
-        service.delete(idCurso);
-        return "redirect:/curso";
+
+    @GetMapping("/edit/{idCurso}")
+    public String edit(@PathVariable("idCurso") int idCurso, Model model){
+        model.addAttribute("curso",
+                service.findById(idCurso)
+                        .orElse(new CursoDTO()));
+
+        return "curso";
     }
+    @PostMapping("/save")
+    public String save(@ModelAttribute CursoDTO idCurso){
+        service.save(idCurso);
+        return "redirect:/curso/all";
+    }
+    @GetMapping("/del/{idCurso}")
+    public String delete(@PathVariable("idCurso") int idCurso){
+        service.delete(idCurso);
+        return "redirect:/curso/all";
+    }
+
 }

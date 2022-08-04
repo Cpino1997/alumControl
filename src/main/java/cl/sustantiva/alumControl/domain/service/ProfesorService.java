@@ -1,7 +1,8 @@
 package cl.sustantiva.alumControl.domain.service;
 
-import cl.sustantiva.alumControl.persistence.entity.Profesor;
-import cl.sustantiva.alumControl.persistence.repository.ProfesorRepository;
+
+import cl.sustantiva.alumControl.domain.dto.ProfesorDTO;
+import cl.sustantiva.alumControl.domain.repository.ProfesorRepositoryDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,29 +10,28 @@ import java.util.Optional;
 
 @Service
 public class ProfesorService {
-    private final ProfesorRepository repository;
+    private final ProfesorRepositoryDTO repo;
 
-    public ProfesorService(ProfesorRepository repository) {
-        this.repository = repository;
+    public ProfesorService(ProfesorRepositoryDTO repo) {
+        this.repo = repo;
     }
 
-    public List<Profesor> getAll(){
-        return repository.getAll();
+    public Optional<List<ProfesorDTO>> findAll(){
+        return repo.findAll();
     }
 
-    public Optional<Profesor> getOne(int idProfesor){
-        return repository.getOne(idProfesor);
+    public Optional<ProfesorDTO> findById(int idProfe){
+        return repo.findById(idProfe);
+    }
+    public ProfesorDTO save(ProfesorDTO profesorDTO){
+        return repo.save(profesorDTO);
     }
 
-    public Profesor save(Profesor profesor){
-        return repository.save(profesor);
-    }
-
-    public boolean delete(int idProfesor){
-        return getOne(idProfesor)
-                .map(profesor -> {
-                    repository.delete(idProfesor);
-                    return true;
-                }).orElse(false);
+    public boolean delete(int idProfe){
+        return findById(idProfe)
+                .map(profesorDTO -> {
+                    repo.delete(idProfe);
+                    return true;})
+                .orElse(false);
     }
 }

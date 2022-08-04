@@ -2,6 +2,7 @@ package cl.sustantiva.alumControl.persistence.mapper;
 
 import cl.sustantiva.alumControl.domain.dto.CursoDTO;
 import cl.sustantiva.alumControl.persistence.entity.Curso;
+
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -22,6 +23,5 @@ public interface CursoMapper {
     List<CursoDTO> toCursoDTOs(List<Curso> cursos);
 
     @InheritInverseConfiguration
-    @Mapping(source = "idProfesor", target = "idProfesor")
     Curso toCurso(CursoDTO cursoDTO);
 }

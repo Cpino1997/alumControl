@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CursoRepositoryDTO {
-    List<CursoDTO> getAll();
-    Optional<CursoDTO> getOne(int idCurso);
+    Optional<List<CursoDTO>> findAll();
+    Optional<CursoDTO> findById(int idCurso);
     CursoDTO save(CursoDTO cursoDTO);
     void delete(int idCurso);
 }

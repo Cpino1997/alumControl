@@ -5,7 +5,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "curso")
-@NamedQuery(name="Curso.findByNombre", query="select c from Curso c where c.nombreCurso like ?1")
 public class Curso {
 
     @Id
@@ -65,13 +64,4 @@ public class Curso {
         this.idProfesor = idProfesor;
     }
 
-    @Override
-    public String toString() {
-        return "Curso{" +
-                "idCurso=" + idCurso +
-                ", idProfesor=" + idProfesor +
-                ", codigoCurso='" + codigoCurso + '\'' +
-                ", nombreCurso='" + nombreCurso + '\'' +
-                '}';
-    }
 }

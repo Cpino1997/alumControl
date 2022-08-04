@@ -23,7 +23,7 @@ public interface ProfesorMapper {
     })
 
     ProfesorDTO toProfesorDTO(Profesor profesor);
-    List<Profesor> toProfesorDTOs(List<Profesor> profesores);
+    List<ProfesorDTO> toProfesorDTOs(List<Profesor> Profesores);
 
     @InheritInverseConfiguration
     Profesor toProfesor(ProfesorDTO profesorDTO);

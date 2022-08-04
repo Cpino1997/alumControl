@@ -12,36 +12,37 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/curso")
 public class CursoRestController {
+
     private final CursoService service;
 
     public CursoRestController(CursoService service) {
         this.service = service;
     }
-
-    @GetMapping
-    public ResponseEntity<List<CursoDTO>> getAll(){
-        return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
+    @GetMapping("/all")
+    public ResponseEntity<List<CursoDTO>> findAll(){
+        return service.findAll()
+                .map(cursos -> new ResponseEntity<>(cursos, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<CursoDTO> getOne(@PathVariable("id") int idCurso){
-        return service.getOne(idCurso)
-                .map(curso -> new ResponseEntity<>(curso, HttpStatus.OK))
+    @GetMapping("/{idCurso}")
+    public ResponseEntity<CursoDTO> findById(@PathVariable("idCurso") int idCurso){
+        return service.findById(idCurso)
+                .map(cursoDTO -> new ResponseEntity<>(cursoDTO, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping
-    public ResponseEntity<CursoDTO> save(@RequestBody CursoDTO curso){
-        return new ResponseEntity<>(service.save(curso), HttpStatus.OK);
+    @PostMapping("/save")
+    public ResponseEntity<CursoDTO> save(@RequestBody CursoDTO cursoDTO){
+        return new ResponseEntity<>(service.save(cursoDTO), HttpStatus.OK);
     }
-
-    @DeleteMapping("/del/{id}")
-    public ResponseEntity delete(@PathVariable("id") int idCurso){
+    @DeleteMapping("/del/{idCurso}")
+    public ResponseEntity delete(@PathVariable("idCurso") int idCurso){
         if (service.delete(idCurso)){
             return new ResponseEntity(HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
     }
+
 
 }

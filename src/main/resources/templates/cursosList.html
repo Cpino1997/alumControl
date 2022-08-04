@@ -53,7 +53,7 @@
                     <th th:text="${curso.getIdCurso()}">Esto es el text</th>
                     <td th:text="${curso.getCodigoCurso()}">Esto es el text</td>
                     <td th:text="${curso.getNombreCurso()}">Esto es el text</td>
-                    <td th:text="${curso.getIdProfesor()}">Aqui iria el profe</td> <!-- th:text="${curso.getProfesorDTO().getIdProfe()}" -->
+                    <td th:text="${curso.getProfesorDTO()}">Aqui iria el profe</td> <!-- th:text="${curso.getProfesorDTO().getIdProfe()}" -->
                     <td><a th:href="@{/curso/{id}(id=${curso.getIdCurso()})}"><i class="fa-solid fa-user-pen"></i></a>
                         <a th:href="@{/curso/del/{id}(id=${curso.getIdCurso()})}"><i class="fa-solid fa-trash"></i></a>
                     </td>

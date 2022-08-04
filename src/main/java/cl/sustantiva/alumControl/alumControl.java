@@ -8,7 +8,7 @@ public class alumControl {
 
 	public static void main(String[] args) {
 		SpringApplication.run(alumControl.class, args);
-		System.out.println("funcionando! =D");
+		System.out.println("Estoy Encendido!");
 	}
 
 }

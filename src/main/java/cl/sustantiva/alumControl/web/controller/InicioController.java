@@ -13,17 +13,17 @@ public class InicioController {
     Log logger = LogFactory.getLog(InicioController.class);
     @GetMapping
     public String inicio(){
-        logger.info("funciono Otra Vez :D");
+        logger.info("Cargado y listo uwu");
         return "index";
     }
     @GetMapping("/home")
     public String home(){
-        logger.info("cargue el home");
+        logger.info("Cargando el Home");
         return "home";
     }
     @GetMapping("/login")
     public String login(){
-        logger.info("Cargue el Login");
+        logger.info("Cargando el Login");
         return "login";
     }
 }
