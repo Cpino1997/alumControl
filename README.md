@@ -1,3 +1,6 @@
 # Sistema de control escolar AlumnControl
 
-Falta desarrollar la parte de matriculas.
+Plataforma creada con springboot, security, lombok, mysql y otros.
+
+Falta por terminar detalles.
+Aun es progreso.
